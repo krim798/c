@@ -1,21 +1,29 @@
 #include <stdio.h>
-int search(int array[], int n, int x) {
-  for (int i = 0; i < n; i++)
-    if (array[i] == x)
-      return i;
-  return -1;
+int search(int array[], int size, int target) {
+    for (int i = 0; i < size; i++) {
+        if (array[i] == target) {
+            return i;
+        }
+    }
+    return -1;
 }
 int main() {
-  int z,k, array[100];
-  printf("Enter z:");
-  scanf("%d",&z);
-  for(k=0;k<z;k++)
-  {
-    printf("Enter terms:");
-    scanf("%d",&array[k]);
-  }
-  int x = 1;
-  int n = sizeof(array) / sizeof(array[0]);
-  int result = search(array, n, x);
-  (result == -1) ? printf("Element not found") : printf("Element found at index: %d", result);
+    int n, x;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+
+    int array[n];
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+    printf("Enter the target value: ");
+    scanf("%d", &x);
+    int result = search(array, n, x);
+    if (result != -1) {
+        printf("Element found at index: %d\n", result);
+    } else {
+        printf("Element not found\n");
+    }
+    return 0;
 }

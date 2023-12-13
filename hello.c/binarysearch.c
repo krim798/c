@@ -1,32 +1,25 @@
 #include <stdio.h>
-struct student {
-    char firstName[50];
-    int roll;
-    float marks;
-} s[10];
 
-int main() {
-    int i;
-    printf("Enter information of students:");
-
-    // storing information
-    for (i = 0; i < 10; ++i) {
-        s[i].roll = i + 1;
-        printf("For roll number%d,", s[i].roll);
-        printf("Enter first name: ");
-        scanf("%s", s[i].firstName);
-        printf("Enter marks: ");
-        scanf("%f", &s[i].marks);
-    }
-    printf("Displaying Information:");
-
-    // displaying information
-    for (i = 0; i < 10; ++i) {
-        printf("\nRoll number: %d", i + 1);
-        printf("First name: ");
-        puts(s[i].firstName);
-        printf("Marks: %.1f", s[i].marks);
-        
-    }
-    return 0;
+int binarySearch(int array[], int x, int low, int high) {
+    while (low <= high) {
+    int mid = low + (high - low) / 2;
+if (array[mid] == x)
+      return mid;
+if (array[mid] < x)
+      low = mid + 1;
+else
+      high = mid - 1;
+  }
+  return -1;
+}
+int main(void) {
+  int array[] = {3, 4, 5, 6, 7, 8, 9};
+  int n = sizeof(array) / sizeof(array[0]);
+  int x = 4;
+  int result = binarySearch(array, x, 0, n - 1);
+  if (result == -1)
+    printf("Not found");
+  else
+    printf("Element is found at index %d", result);
+  return 0;
 }

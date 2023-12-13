@@ -18,6 +18,5 @@ int main()
         b = c;     
         c = a + b; 
     }
-
     return 0;
 }

@@ -8,6 +8,4 @@ int main()
     printf("The number is even");
     if (a%2!=0)
     printf("The number is odd");
-
-
 }
